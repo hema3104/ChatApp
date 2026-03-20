@@ -28,7 +28,7 @@ object FirebaseRepository {
 
         FirebaseFirestore.getInstance()
             .collection("users")
-            .document(user.uid)   // 🔥 UID automatically used
+            .document(user.uid)
             .set(userMap)
     }
 

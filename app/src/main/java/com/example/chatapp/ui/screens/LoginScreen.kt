@@ -43,19 +43,16 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // 🔥 SHOW ERROR IF ANY
         if (errorMessage.isNotEmpty()) {
             Text(errorMessage, color = MaterialTheme.colorScheme.error)
             Spacer(modifier = Modifier.height(8.dp))
         }
 
-        // 🔥 LOADING BUTTON
         if (isLoading) {
             CircularProgressIndicator()
         } else {
             AppButton("Login") {
 
-                // basic validation
                 if (email.isBlank() || password.isBlank()) {
                     errorMessage = "Please enter email & password"
                     return@AppButton

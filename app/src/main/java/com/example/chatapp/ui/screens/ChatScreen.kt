@@ -32,24 +32,35 @@ fun ChatScreen(onLogout: () -> Unit) {
 
     Column(modifier = Modifier.fillMaxSize()) {
 
-        // 🔥 TOP BAR WITH LOGOUT
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(12.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
+
             Text("Chat", style = MaterialTheme.typography.headlineSmall)
 
-            Button(onClick = {
-                FirebaseAuth.getInstance().signOut()
-                onLogout()
-            }) {
-                Text("Logout")
+            Button(
+                onClick = {
+                    ChatRepository.deleteMyMessages()
+                }
+            ) {
+                Text("Clear")
+
+
+                Spacer(modifier = Modifier.width(8.dp))
+
+                Button(
+                    onClick = {
+                        FirebaseAuth.getInstance().signOut()
+                        onLogout()
+                    }
+                ) {
+                    Text("Logout")
+                }
             }
         }
-
-        // 🔥 Messages List
         LazyColumn(
             modifier = Modifier
                 .weight(1f)
@@ -91,7 +102,6 @@ fun ChatScreen(onLogout: () -> Unit) {
             }
         }
 
-        // 🔥 Input + Send
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -120,3 +130,4 @@ fun ChatScreen(onLogout: () -> Unit) {
         }
     }
 }
+

@@ -49,7 +49,6 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        // 🔹 Input Fields (Figma spacing)
         AppTextField(email, { email = it }, "Enter Email")
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -70,7 +69,6 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // 🔹 Register Button
         AppButton("Register") {
 
             if (password == confirmPassword) {
@@ -85,7 +83,6 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 🔹 Social icons (from drawable)
         SocialLoginRow()
 
         Spacer(modifier = Modifier.height(20.dp))
